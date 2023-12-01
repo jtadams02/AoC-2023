@@ -1,5 +1,5 @@
 # Get input file
-infile = open("inputTest.txt",'r')
+infile = open("input.txt",'r')
 
 n = infile.readline()
 s = 0
@@ -51,11 +51,23 @@ while n:
         last_num -= 1
     
     left = len(n)-1
+    did_find = 0
     while left > last_num:
         start = left
-        while start < len(n)
-        
-    # print(curr_sum)
+        while start < len(n):
+            splice = n[left:start+1]
+            if splice in numbers:
+                curr_sum += numbers[splice]
+                did_find = 1
+                break
+            start += 1
+        if did_find:
+            break
+        left -= 1
+    if not did_find:
+        curr_sum += n[last_num]
+    print(curr_sum)
+    s += int(curr_sum)
     n = infile.readline()
 print("Output below")
 print(s)
